@@ -21,4 +21,17 @@ app.get("/sum", function( req, res) {
     }
 })
 
+app.get("/simple-interest", function(req, res) {
+    let p = parseInt(req.query.p);
+    let r = parseInt(req.query.r);
+    let t = parseInt(req.query.t);
+    si = p*r*(t);
+    if(!si) {
+        res.status(400).send("SI didn't get");
+    } else {
+        res.status(200).send(si.toString());
+    }
+    
+})
+
 app.listen(3000)

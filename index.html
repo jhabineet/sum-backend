@@ -9,13 +9,29 @@
                 console.log(data);
                 document.getElementById("finalValue").innerHTML = data;
             }
-        </script>
 
+            async function calculateInterest() {
+                const p = document.getElementById("p").value;
+                const r = document.getElementById("r").value;
+                const t = document.getElementById("t").value;
+                const res = await fetch("http://localhost:3000/simple-interest?p=" + p + "&r=" + r + "&t=" + t);
+                const data = await res.text();
+                console.log(data);
+                document.getElementById("finalValueInterest").innerHTML = data;
+            }
+        </script>
 
         <input id="1" type="text" placeholder="Enter the value of a">
         <input id="2" type="text" placeholder="Enter the value of b"> 
         <button id="sum" onclick="calculateSum()">Click Here</button>
         <div>value is:-</div>
         <div id="finalValue"></div>
+
+        <input id="p" type="text" placeholder="Principal">
+        <input id="r" type="text" placeholder="Rate"> 
+        <input id="t" type="text" placeholder="Time"> 
+        <button id="Interest" onclick="calculateInterest()">Click Here</button>
+        <div>value is:-</div>
+        <div id="finalValueInterest"></div>
     </body>
 </head>
