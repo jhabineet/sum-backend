@@ -25,7 +25,7 @@ app.get("/simple-interest", function(req, res) {
     let p = parseInt(req.query.p);
     let r = parseInt(req.query.r);
     let t = parseInt(req.query.t);
-    si = p*r*(t);
+    si = (p*r*(t))/100;
     if(!si) {
         res.status(400).send("SI didn't get");
     } else {
